@@ -1,8 +1,6 @@
-骑马越野的心理学(译)
+原文: [The Psychology of Cross Country](http://www.billbuxton.com/xc.html)
 
 
-
-事非经过不知难
 
 #### Introduction
 

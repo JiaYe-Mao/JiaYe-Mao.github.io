@@ -73,6 +73,39 @@ class Outer$Inner {
 
 
 
+#### 4. 值得注意的地方
+
+​	我们已经知道了内部类调用外部对象的原理, 也就是将外部类的对象引用复制一份作为参数传入内部类里去, 那是不是意味着在内部类里面修改外部类的值会失败呢? 其实是不会的, 我们可以看一下下面这个例子:
+
+```
+public class Outer {
+
+    int a = 1;
+
+    class Inner {
+        private int getB(){
+            a = 2;
+            return a;
+        }
+    }
+
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        Inner inner = outer.new Inner();
+        System.out.println("a has been changed in Inner class! a = " + inner.getB());
+        System.out.println("a in outer class: a = " + outer.a);
+    }
+}
+
+// output:
+// a has been changed in Inner class! a = 2
+// a in outer class: a = 2
+```
+
+​	可以看到,  在内部类里修改的a值在外部类里也变了, 这是为什么呢? 这里涉及到对值传递和引用传递的理解, 虽然内部类在初始化的时候确实是传入的一个外部类对象引用的复制, 但是这个引用指向的内存是和原来的对象是同一块, 不管用哪个引用来修改对象, 只要不是将这个引用指向了其他对象, 都可以修改到同一个对象. 以这段代码为例, 内部类中的赋值语句a=2, 其实就是outer.a = 2, outer是外部类的对象复制过来的一份引用, 但是也能对这个对象进行操作.
+
+​	所以, 在内部类里修改外部类对象的参量是可以修改成功的, 原因就是传入的引用指向的内存空间就是真实的外部类对象的内存空间. 
+
 
 
 ####4. 内部类的意义
