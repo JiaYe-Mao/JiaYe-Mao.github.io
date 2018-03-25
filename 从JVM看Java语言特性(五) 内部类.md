@@ -263,7 +263,9 @@ public class Outer {
 // a in outer class: a = 3
 ```
 
-可以看出内部类是可以一层一层嵌套下去的, 而且外部类的参数传递会继续进行下去. 如果我们将内部类推广下去也是一样的结果, (有种数学归纳法的味道..) , 
+可以看出内部类是可以一层一层嵌套下去的, 而且外部类的参数传递会继续进行下去. 如果我们将内部类推广下去也是一样的结果, (有种数学归纳法的味道..) , 总结一下内部类的嵌套模式, 画成图片的样子如下:
+
+![嵌套模式](https://github.com/JiaYe-Mao/MarkdownImages/raw/master/MyBlog/JVM_Series/Blog_JVM5_InnerClass.jpg)
 
 
 
